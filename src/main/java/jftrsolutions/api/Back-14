@@ -1,0 +1,53 @@
+// Define a class for a spaceship
+class Spaceship {
+    String name;
+    int capacity;
+    String[] amenities;
+    float price;
+}
+
+// Define a list of spaceships for the customer to choose from
+List<Spaceship> availableSpaceships = new ArrayList<Spaceship>();
+
+// Add some spaceships to the list
+Spaceship spaceship1 = new Spaceship();
+spaceship1.name = "Falcon";
+spaceship1.capacity = 4;
+spaceship1.amenities = new String[]{"Hyperdrive", "Weapons", "Shields"};
+spaceship1.price = 100.0f;
+availableSpaceships.add(spaceship1);
+
+Spaceship spaceship2 = new Spaceship();
+spaceship2.name = "Star Cruiser";
+spaceship2.capacity = 8;
+spaceship2.amenities = new String[]{"Holodeck", "Warp Drive", "Bar"};
+spaceship2.price = 200.0f;
+availableSpaceships.add(spaceship2);
+
+// Display the list of available spaceships
+System.out.println("Available Spaceships:");
+for (Spaceship spaceship : availableSpaceships) {
+    System.out.println(spaceship.name + " - Capacity: " + spaceship.capacity +
+        ", Amenities: " + Arrays.toString(spaceship.amenities) +
+        ", Price: $" + spaceship.price);
+}
+
+// Ask the customer to select a spaceship
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter the name of the spaceship you want to reserve:");
+String selectedSpaceshipName = scanner.nextLine();
+
+// Find the selected spaceship and add it to the reservation
+Spaceship selectedSpaceship = null;
+for (Spaceship spaceship : availableSpaceships) {
+    if (spaceship.name.equals(selectedSpaceshipName)) {
+        selectedSpaceship = spaceship;
+        break;
+    }
+}
+
+if (selectedSpaceship == null) {
+    System.out.println("Sorry, that spaceship is not available.");
+} else {
+    System.out.println("You have reserved the " + selectedSpaceship.name + " for $" + selectedSpaceship.price);
+}
