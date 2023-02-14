@@ -1,0 +1,53 @@
+// Define a class to represent a space journey
+class SpaceJourney {
+    String destination;
+    double price;
+    String duration;
+    // Additional fields and methods can be added as needed
+}
+
+// Define a class to represent the list of available space journeys
+class SpaceJourneyList {
+    List<SpaceJourney> journeys;
+
+    public SpaceJourneyList() {
+        // Initialize the list of journeys
+        journeys = new ArrayList<>();
+        // Add some sample journeys to the list
+        journeys.add(new SpaceJourney("Mars", 10000, "3 months"));
+        journeys.add(new SpaceJourney("Venus", 12000, "4 months"));
+        // Additional journeys can be added here
+    }
+
+    // Method to filter the list of journeys by destination
+    public List<SpaceJourney> filterByDestination(String destination) {
+        List<SpaceJourney> filteredJourneys = new ArrayList<>();
+        for (SpaceJourney journey : journeys) {
+            if (journey.destination.equals(destination)) {
+                filteredJourneys.add(journey);
+            }
+        }
+        return filteredJourneys;
+    }
+
+    // Method to filter the list of journeys by price range
+    public List<SpaceJourney> filterByPriceRange(double minPrice, double maxPrice) {
+        List<SpaceJourney> filteredJourneys = new ArrayList<>();
+        for (SpaceJourney journey : journeys) {
+            if (journey.price >= minPrice && journey.price <= maxPrice) {
+                filteredJourneys.add(journey);
+            }
+        }
+        return filteredJourneys;
+    }
+
+    // Additional filtering methods can be added here
+}
+
+// Sample usage of the SpaceJourneyList class
+SpaceJourneyList journeyList = new SpaceJourneyList();
+List<SpaceJourney> filteredJourneys = journeyList.filterByDestination("Mars");
+for (SpaceJourney journey : filteredJourneys) {
+    // Display the journey information on the website/app
+    System.out.println(journey.destination + " - " + journey.price + " - " + journey.duration);
+}
