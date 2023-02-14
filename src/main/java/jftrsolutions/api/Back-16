@@ -1,0 +1,27 @@
+// POST /bookings
+public void createBooking(Request req, Response res) {
+  // Validate the request data
+  if (req.body().get("customerId") == null || req.body().get("spacecraftId") == null) {
+    res.status(400).json(new ResponseError("Invalid request data"));
+    return;
+  }
+
+  // Check if the spacecraft is available for the requested dates
+  if (!isSpacecraftAvailable(req.body().get("spacecraftId"), req.body().get("startDate"), req.body().get("endDate"))) {
+    res.status(409).json(new ResponseError("Spacecraft is not available for the requested dates"));
+    return;
+  }
+
+  // Create the booking
+  String bookingId = createNewBooking(req.body().get("customerId"), req.body().get("spacecraftId"), req.body().get("startDate"), req.body().get("endDate"));
+
+  // Check if there are any invited travelers
+  List<String> invitedTravelers = req.body().get("invitedTravelers");
+  if (invitedTravelers != null && invitedTravelers.size() > 0) {
+    // Send invitation emails to the invited travelers
+    sendInvitationEmails(bookingId, invitedTravelers);
+  }
+
+  // Return the booking ID
+  res.status(201).json(new ResponseData("bookingId", bookingId));
+}
