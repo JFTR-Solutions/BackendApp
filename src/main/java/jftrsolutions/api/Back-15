@@ -1,0 +1,36 @@
+    Create a function to display itinerary and duration:
+    a. Retrieve itinerary and duration information from the database.
+        Initialize a variable "itinerary" and retrieve itinerary information from the database
+        Initialize a variable "duration" and retrieve duration information from the database
+        b. Display the information to the customer in a user-friendly format.
+        Create a template for displaying itinerary and duration
+        Use the retrieved values to fill the template
+        Display the filled template on the screen
+        c. Provide an option to print or save the information for future reference.
+        Add a print button to the page
+        Add a save button to the page
+        When the user clicks on the print button, print the itinerary and duration on the page
+        When the user clicks on the save button, save the itinerary and duration to the local storage
+        d. If there is no itinerary or duration information, display a message indicating that the information is not available.
+        Check if the retrieved itinerary and duration values are null
+        If either value is null, display a message indicating that the information is not available
+
+    Create a user interface to access the function:
+    a. Add a button or link on the customer's account page to access the function.
+        Add a link or button to the customer's account page with the text "View Itinerary"
+        Style the link or button to make it visible and easy to use
+        b. Make the button or link clearly visible and easy to use.
+        Use a contrasting color for the link or button to make it visible
+        Add a tooltip or text next to the link or button to describe the function
+        c. Add a tooltip or explanation to describe the function.
+        Add a tooltip or text next to the link or button to describe the function
+
+    Test the function:
+    a. Ensure that the function works as expected.
+        Test the function with different itinerary and duration values
+        Test the function with different browsers and devices
+        Ensure that the print and save buttons work as expected
+        b. Get feedback from users to improve the function if necessary.
+        Ask customers to provide feedback on the function
+        Analyze the feedback to identify areas of improvement
+        Implement the improvements based on the feedback provided.
